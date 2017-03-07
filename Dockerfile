@@ -40,3 +40,8 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Cleaning
 RUN apt-get clean
+
+RUN mkdir /data/
+
+WORKDIR /data/
+RUN cordova telemetry off
