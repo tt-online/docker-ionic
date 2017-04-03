@@ -29,14 +29,16 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force
 
 # To know all possibilities, just run: android list sdk --all
 # Install Android SDK
-RUN cd /opt && wget https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && \
-  unzip tools_r25.2.3-linux.zip -d android-sdk-linux && \
-  rm tools_r25.2.3-linux.zip && \
-    (echo y | android-sdk-linux/tools/android update sdk -u -a -t 1,2,3,6,10,14,16,23,32,33,34,35,36,38,124,160,166,167,168,169,170,171,172)
+##RUN cd /opt && wget https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && \
+##  unzip tools_r25.2.3-linux.zip -d android-sdk-linux && \
+##  rm tools_r25.2.3-linux.zip && \
+##    (echo y | android-sdk-linux/tools/android update sdk -u -a -t 1,2,3,6,10,14,16,23,32,33,34,35,36,38,124,160,166,167,168,169,170,171,172)
 
 
-ENV ANDROID_HOME /opt/android-sdk-linux
-ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+##ENV ANDROID_HOME /opt/android-sdk-linux
+##ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
+RUN yarn global add universal-cli
 
 # Cleaning
 RUN apt-get clean
